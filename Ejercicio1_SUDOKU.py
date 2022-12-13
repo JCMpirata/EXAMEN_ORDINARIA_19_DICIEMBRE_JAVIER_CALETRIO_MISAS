@@ -9,3 +9,9 @@ board = [
     [".", "1", "4", ".", "3", ".", ".", "5", "7"],
     [".", ".", "5", ".", "8", "7", ".", ".", "."]
 ]
+
+class valida_sudoku:
+    def__init__(self, tablero):
+        self.tablero = tablero
+
+    
