@@ -11,7 +11,15 @@ board = [
 ]
 
 class valida_sudoku:
-    def__init__(self, tablero):
+    def __init__(self, tablero):
         self.tablero = tablero
 
-    
+    def valida_filas(self):
+        for fila in self.tablero:
+            if len(fila) != 9:
+                return False
+            for numero in fila:
+                if numero != '.':
+                    if fila.count(numero) > 1:
+                        return False
+        return True
