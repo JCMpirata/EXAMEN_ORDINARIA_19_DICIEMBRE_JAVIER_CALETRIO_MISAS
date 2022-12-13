@@ -28,5 +28,26 @@ class rail_fence_chyper:
             tabla2[fila][columna] = "*"
             fila = fila + i
             columna = columna + 1
-        
-    
+        index = 0
+        for fila in range(valor):
+            for columna in range(len(mensaje)):
+                if tabla2[row][col]== "*":
+                    tabla2[row][col] = mensaje[index]
+                    index = index+1
+        Decripcion = ""
+        row = 0
+        col = 0
+        i=1
+        while col < len(mensaje):
+            if fila + i < 0 or  + i >= valor:
+                i=i*-1
+            Decripcion =Decripcion + tabla2[row][col]
+            row=row+i
+            col=col+1
+        return Decripcion
+if __name__ == '__main__':
+    rail_fence_chyper = rail_fence_chyper()
+    mensaje = "Neuschwansstein"
+    clave = 3
+    print(rail_fence_chyper.codificar(mensaje, clave))
+    print(rail_fence_chyper.descodificar(mensaje, clave))
