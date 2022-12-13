@@ -1,12 +1,12 @@
 class rail_fence_chyper:
-    def __init__(self, cuadricula):
-        self.cuadricula = cuadricula
-    def codificar(mensaje, clave):
+    def __init__(self, clave):
+        self.clave = clave
+    def codificar(self, mensaje):
         fila, columna = 0, 0
         i = 1
-        tabla1 = [["." for cols in range(len(mensaje))] for rows in range(clave)]
+        tabla1 = [["." for cols in range(len(mensaje))] for rows in range(self.clave)]
         while columna < len(mensaje):
-            if fila + i < 0 or fila + i >= clave:
+            if fila + i < 0 or fila + i >= self.clave:
                 i = i*-1
             tabla1[fila][columna]= mensaje[columna]
             fila = fila + i
@@ -18,7 +18,7 @@ class rail_fence_chyper:
             print(j)
         return Encripcion
 
-    def descodificar (mensaje, valor):
+    def descodificar (self, mensaje, valor):
         fila, columna = 0, 0
         i = 1
         tabla2 = [["" for cols in range(len(mensaje))] for rows in range(valor)]
@@ -46,8 +46,5 @@ class rail_fence_chyper:
             col=col+1
         return Decripcion
 if __name__ == '__main__':
-    rail_fence_chyper = rail_fence_chyper()
-    mensaje = "Neuschwansstein"
-    clave = 3
-    print(rail_fence_chyper.codificar(mensaje, clave))
-    print(rail_fence_chyper.descodificar(mensaje, clave))
+    cuadricula = rail_fence_chyper(3).codificar("Neuschwanstein")
+    print(cuadricula)
