@@ -23,3 +23,15 @@ class valida_sudoku:
                     if fila.count(numero) > 1:
                         return False
         return True
+    
+    def valida_columna(self):
+        for columna in range(9):
+            lista = []
+            for fila in self.tablero:
+                if fila[columna] != '.':
+                    lista.append(fila[columna])
+            if len(lista) != len(set(lista)):
+                return False
+        return True
+
+    
