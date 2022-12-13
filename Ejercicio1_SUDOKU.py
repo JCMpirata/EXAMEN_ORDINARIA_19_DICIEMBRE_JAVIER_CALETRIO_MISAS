@@ -34,4 +34,14 @@ class valida_sudoku:
                 return False
         return True
 
-    
+    def valida_subcuadrado(self):
+        for fila in range(0, 9, 3):
+            for columna in range(0, 9, 3):
+                lista = []
+                for i in range(3):
+                    for j in range(3):
+                        if self.tablero[fila + i][columna + j] != '.':
+                            lista.append(self.tablero[fila + i][columna + j])
+                if len(lista) != len(set(lista)):
+                    return False
+        return True
