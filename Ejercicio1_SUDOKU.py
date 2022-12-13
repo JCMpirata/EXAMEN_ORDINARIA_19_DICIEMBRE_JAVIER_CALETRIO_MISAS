@@ -14,7 +14,7 @@ class valida_sudoku:
     def __init__(self, tablero):
         self.tablero = tablero
 
-    def valida_filas(self):
+    def valida_fila(self):
         for fila in self.tablero:
             if len(fila) != 9:
                 return False
@@ -45,3 +45,9 @@ class valida_sudoku:
                 if len(lista) != len(set(lista)):
                     return False
         return True
+
+if __name__ == '__main__':
+    sudoku = valida_sudoku(board)
+    print(sudoku.valida_fila())
+    print(sudoku.valida_columna())
+    print(sudoku.valida_subcuadrado())
